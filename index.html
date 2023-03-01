@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form validation library</title>
     <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 <body>
 <main class="container">
@@ -19,26 +17,52 @@
         <h3>1. Mail input validation</h3>
     <div class="example">
         <div>
-        <label for="email">Input your email: </label>
-        <input type="email" id="email">
-    </div>
-
-        <a href="#">Use function</a>
+            <form name="myform3"  onsubmit="return CheckNumber()">
+            <label for="number">JavaScript Number Validation </label>
+            <input id="number">
+                <span id="numloc"></span><br/>
+                <div class="Check">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+        <a href="https://klaudijademchyk.github.io/Libraries/function-vaild-email.js" target="_blank">Use function</a>
     </div>
     <br>
-    <h3>2. Check for form filling and length of characters entered</h3>
+    <h3>2. Here, we are validating the form on form submit.<br>
+        The user will not be forwarded to the next page until given values are correct.</h3>
+        <br>
         <div class="example">
-            <div>
-                <label for="name">Input your name: </label>
-                <input type="text" id="name">
+            <form name="myform" method="post" action="" onsubmit="return CheckForm()">
+                Name: <input type="text" name="name" style="margin-left: 28px;">
+                Password: <input type="password" name="password">
+                <div class="Check">
+                <button type="submit">Register</button>
+                 </div>
+                <a href="https://klaudijademchyk.github.io/Libraries/function-vaild-email.js" target="_blank">Use function</a>
+            </form>
+        </div>
+        <br>
+        <div class="info">
+        <h3>3.Retype Password Validation</h3>
+        <div class="container ">
+            <div class="example">
+            <form name="myform2" method="post" action="" onsubmit="return CheckPaswordTwice()">
+                Password:<input type="password" name="password" style="margin-left: 28px;">
+                Re-enter Password:<input type="password" name="password2">
+                <div class="Check">
+                <button type="submit">Submit</button>
+                </div>
+                <a href="https://klaudijademchyk.github.io/Libraries/function-vaild-email.js" target="_blank">Use function</a>
+                </form>
             </div>
-            <button type="submit" id="submit">Submit</button>
-            <a href="#">Use function</a>
         </div>
     </div>
 </div>
+    </div>
     </section>
 </main>
 <script src="js/function-vaild-email.js"></script>
+<script src="js/Valid-Check-Form.js"></script>
 </body>
 </html>
