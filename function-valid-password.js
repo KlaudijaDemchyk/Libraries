@@ -1,9 +1,14 @@
 //JavaScript Retype Password Validation
-function matchpass(firstpassword, secondpassword) {
-    if (firstpassword == secondpassword) {
+function passwordsMatch(firstPassword, secondPassword) {
+    return firstPassword === secondPassword;
+}
+function checkPasswordTwice() {
+    const firstPassword = document.myform2.password.value.trim();
+    const secondPassword = document.myform2.password2.value.trim();
+    if (passwordsMatch(firstPassword, secondPassword)) {
         return true;
     } else {
-        alert("password must be same!");
+        document.getElementById("password-error").innerHTML = "Passwords must match!";
         return false;
     }
 }

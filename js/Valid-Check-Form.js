@@ -1,42 +1,50 @@
-function CheckNumber() {
-    var num = document.myform3.number.value;
-       validate(num);
-    function validate(num,error) {
-           if (isNaN(num)) {
-           alert("Enter Numeric value only");
-            return false;
-        } else {
-            return true;
-        }
-    }
+function validateNumericInput(inputValue) {
+    return !isNaN(parseFloat(inputValue)) && isFinite(inputValue);
 }
-function CheckForm() {
-    var nameInput = document.myform.name.value;
-    var passwordInput = document.myform.password.value;
-    validateform(nameInput, passwordInput);
-    function validateform(nameInput, passwordInput) {
-        var name = nameInput;
-        var password = passwordInput;
-        if (name == null || name == "") {
-            alert("Name can't be blank");
-            return false;
-        } else if (password.length < 6) {
-            alert("Password must be at least 6 characters long.");
-            return false;
-        }
-    }
-}
-function CheckPaswordTwice() {
-    var firstpassword = document.myform2.password.value;
-    var secondpassword = document.myform2.password2.value;
-    matchpass(firstpassword, secondpassword);
-    function matchpass(firstpassword, secondpassword) {
-        if (firstpassword == secondpassword) {
-            return true;
-        } else {
-            alert("password must be same!");
-            return false;
-        }
+
+function validateForm(name, password) {
+    if (name.trim() === "") {
+        document.getElementById("form-error").innerHTML = "Name can't be blank";
+        return false;
+    } else if (password.length < 6) {
+        document.getElementById("form-error").innerHTML = "Password must be at least 6 characters long.";
+        return false;
+    } else {
+        return true;
     }
 }
 
+function passwordsMatch(firstPassword, secondPassword) {
+    return firstPassword === secondPassword;
+}
+
+function checkNumber() {
+    const num = document.myform3.number.value.trim();
+    if (!validateNumericInput(num)) {
+        document.getElementById("num-error").innerHTML = "Enter numeric value only";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkForm() {
+    const nameInput = document.myform.name.value.trim();
+    const passwordInput = document.myform.password.value.trim();
+    if (validateForm(nameInput, passwordInput)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkPasswordTwice() {
+    const firstPassword = document.myform2.password.value.trim();
+    const secondPassword = document.myform2.password2.value.trim();
+    if (passwordsMatch(firstPassword, secondPassword)) {
+        return true;
+    } else {
+        document.getElementById("password-error").innerHTML = "Passwords must match!";
+        return false;
+    }
+}
