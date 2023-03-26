@@ -20,7 +20,7 @@ export function passwordsMatch(firstPassword, secondPassword) {
     return firstPassword === secondPassword;
 }
 
-function checkNumber() {
+export function checkNumber() {
     const num = document.myform3.number.value.trim();
     if (!validateNumericInput(num)) {
         document.getElementById("num-error").innerHTML = "Enter numeric value only";
@@ -29,7 +29,7 @@ function checkNumber() {
         return true;
     }
 }
-function checkForm() {
+export function checkForm() {
     const nameInput = document.myform.name.value.trim();
     const passwordInput = document.myform.password.value.trim();
     if (validateForm(nameInput, passwordInput)) {
@@ -39,7 +39,7 @@ function checkForm() {
     }
 }
 
-function checkPasswordTwice() {
+export function checkPasswordTwice() {
     const firstPassword = document.myform2.password.value.trim();
     const secondPassword = document.myform2.password2.value.trim();
     if (passwordsMatch(firstPassword, secondPassword)) {
