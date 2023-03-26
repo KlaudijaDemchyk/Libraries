@@ -1,8 +1,8 @@
 //JavaScript Retype Password Validation
-function passwordsMatch(firstPassword, secondPassword) {
+export function passwordsMatch(firstPassword, secondPassword) {
     return firstPassword === secondPassword;
 }
-function checkPasswordTwice() {
+export function checkPasswordTwice() {
     const firstPassword = document.myform2.password.value.trim();
     const secondPassword = document.myform2.password2.value.trim();
     if (passwordsMatch(firstPassword, secondPassword)) {
